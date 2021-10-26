@@ -16,7 +16,7 @@ def predict():
     if request.method == 'POST':
         s = int(request.form['season'])
     
-    return render_template('index.html', prediction_text="You Can Sell The Car at {}".format(s))
+    return render_template('main.html', prediction_text="You Can Sell The Car at {}".format(s))
 
 if __name__=="__main__":
     app.run()
