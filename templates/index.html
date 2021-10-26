@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-image: url({{ url_for('static', filename='img/bike.png') }});
+            background-size: cover;
+        }
+
+        form{
+            text-align: center;
+        }
+
+        input{
+            width: 10%
+        }
+
+        select{
+            width: 10%
+        }
+
+        button{
+            background-color: green;
+            color: white;
+            width: 10%
+        }
+
+        label{
+            color: grey;
+            font-size: 20px;
+            display: inline-block;
+            text-align: right;
+            width: 300px
+        }
+
+        label:hover{
+            color: red;
+              background-color: transparent;
+              text-decoration: underline;
+        }
+
+
+    </style>
+    <title>Bike Rentals Demand Prediction</title>
+</head>
+
+<body>
+ <div class="login">
+    <center><h1 style="color:white">Bike Rentals Demand Prediction</h1></center>
+    <center><h3><font color="grey"><i>with interpretation of values</i></font></h3></center>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+
+        <b><label for="season">Season</label></b>
+        <select id="season" name="season">
+            <option value="1">Spring</option>
+            <option value="2">Summer</option>
+            <option value="3">Fall</option>
+            <option value="4">Winter</option>
+        </select>
+        <br></br>
+
+        <b><label for="mon">Month</label></b>
+        <select id="mon" name="mnth">
+            <option value="1">Jan</option>
+            <option value="2">Feb</option>
+            <option value="3">Mar</option>
+            <option value="4">Apr</option>
+            <option value="5">May</option>
+            <option value="6">Jun</option>
+            <option value="7">Jul</option>
+            <option value="8">Aug</option>
+            <option value="9">Sep</option>
+            <option value="10">Oct</option>
+            <option value="11">Nov</option>
+            <option value="12">Dec</option>
+        </select>
+        <br></br>        
+  
+        <b><label for="weekday">Weekday</label></b>
+        <select id="weekday" name="weekday">
+            <option value="1">Monday</option>
+            <option value="2">Tuesday</option>
+            <option value="3">Wednesday</option>
+            <option value="4">Thursday</option>
+            <option value="5">Friday</option>
+            <option value="6">Saturday</option>
+            <option value="0">Sunday</option>
+        </select>
+        <br></br> 
+        
+        <b><label for="holiday">Is it a holiday?</label></b>
+        <select id="holiday" name="holiday">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <br></br>
+        
+        <b><label for="hour">Past or Future</label></b>
+        <select id="hour" name="hr">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="0">24</option>
+        </select>
+        <br></br>
+        
+        <b><label for="wea">Weather</label></b>
+        <select id="wea" name="weathersit">
+            <option value="1">Clear/ Few clouds/ Partly cloudy</option>
+            <option value="2">Mist and Cloudy/ Mist and Broken clouds/ Mist and Few clouds/ Mist</option>
+            <option value="3">Snow, Rain/ Thunderstorm, clouds/ Heavy Mist, Fog/ Ice</option>
+        </select>
+        <br></br>
+        
+        <b><label for="temperature">Temperature</label></b>
+        <input type="text" id="temperature" name="temp", required="required", placeholder="Temperature">
+        <br></br>
+
+        <b><label for="humidity">Humidity</label></b>
+        <input type="text" id="humidity" name="hum", required="required", placeholder="Humidity">
+        <br></br>
+        
+        <b><label for="Windspeed">Windspeed</label></b>
+        <input type="text" id="Windspeed" name="windspeed", required="required", placeholder="Windspeed">
+        <br></br>
+
+        <b><label for="Average_casual">Average number of bikes rented in each of the previous 12 hours by casual users</label></b>
+        <input type="text" id="Average_casual" name="rolling_mean_12_hours_casual", required="required", placeholder="Average casual">
+        <br></br>
+
+        <b><label for="Average_registered">Average number of bikes rented in each of the previous 12 hours by registered users</label></b>
+        <input type="text" id="Average_registered" name="rolling_mean_12_hours_registered", required="required", placeholder="Average registered">
+        <br></br>
+
+        <b><label for="Sum_casual">Number of bikes rented in each of the previous 3 days at the same hour by casual users</label></b>
+        <input type="text" id="Sum_casual" name="3_days_sum_casual", required="required", placeholder="Sum of 3 days casual">
+        <br></br>
+
+        <b><label for="Sum_registered">Number of bikes rented in each of the previous 3 days at the same hour by registered users</label></b>
+        <input type="text" id="Sum_registered" name="3_days_sum_registered", required="required", placeholder="Sum of 3 days registered">
+        <br></br>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        <h1><b><center><font color="grey" size="7">{{ prediction_text }}</font></center></b></h1>
+        <button onclick="location.href = '/';" id="myButton" class="float-left submit-button" >Home</button>
+    </form>
+     <br>
+   
+
+    </div>
+</body>
+</html>
