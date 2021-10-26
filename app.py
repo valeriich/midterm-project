@@ -45,4 +45,4 @@ def main():
 #    return render_template('index.html')#, prediction_text='Prediction: \n {} cycle rents.'.format(input_values))
 
 if __name__=="__main__":
-    app.run(debug=True)
+    app.run()
