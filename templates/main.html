@@ -4,8 +4,8 @@
 <head>
     <style>
         body {
-            background-image: url(/static/img/bike.png);
-            background-size: cover;
+            background-color: skyblue;
+            text-align: left;
         }
 
         form{
@@ -27,8 +27,8 @@
         }
 
         label{
-            color: grey;
-            font-size: 20px;
+            color: navy;
+            font-size: 10px;
             display: inline-block;
             text-align: left;
             width: 300px
@@ -45,8 +45,8 @@
 
 <body>
   <div class="login">
-    <center><h1 style="color:blue">Bike Rentals Demand Prediction</h1></center>
-    <center><h3><font color="blue"><i>with interpretation of values</i></font></h3></center>
+    <center><h1 style="color:navy">Bike Rentals Demand Prediction</h1></center>
+    <center><h3><font color="navy"><i>with interpretation of values</i></font></h3></center>
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
