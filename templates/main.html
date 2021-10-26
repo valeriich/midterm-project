@@ -36,22 +36,20 @@
 
         label:hover{
             color: red;
-              background-color: transparent;
-              text-decoration: underline;
+            background-color: transparent;
+            text-decoration: underline;
         }
-
-
     </style>
     <title>Bike Rentals Demand Prediction</title>
 </head>
 
 <body>
- <div class="login">
+  <div class="login">
     <center><h1 style="color:blue">Bike Rentals Demand Prediction</h1></center>
     <center><h3><font color="blue"><i>with interpretation of values</i></font></h3></center>
 
      <!-- Main Input For Receiving Query to our ML -->
-    <!--form action="{{ url_for('predict')}}"method="post"-->
+    <form action="{{ url_for('predict')}}"method="post">
 
         <b><label for="season">Season</label></b>
         <select id="season" name="season">
@@ -164,7 +162,7 @@
         <br></br>
 
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-        <h1><b><center><font color="grey" size="7"></font></center></b></h1>
+        <h1><b><center><font color="grey" size="7">{{ prediction_text }}</font></center></b></h1>
         <button type="interpret" class="btn btn-primary btn-block btn-large">Iterpret</button>
     </form>
      <br>
