@@ -1,5 +1,5 @@
 import numpy as np
-#import pandas as pd
+import pandas as pd
 from flask import Flask, request, jsonify, render_template
 import pickle
 
@@ -35,7 +35,7 @@ def predict():
     #output= round(prediction[0], 2)
 
     #Output sent to the html page
-    return render_template('index.html', prediction_text='Prediction: \n {} cycle rents.'.format(input_values))
+    return render_template('index.html', prediction_text='Prediction: \n {} cycle rents.'.format(input_values[0]))
 
 if __name__=="__main__":
     app.run(debug=True)

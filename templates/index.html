@@ -3,12 +3,12 @@
 <head>
     <style>
         body {
-            background-image: url({{ url_for('static', filename='img/bike.png') }});
+            background-image: url(/static/img/bike.png);
             background-size: cover;
         }
 
         form{
-            text-align: center;
+            text-align: left;
         }
 
         input{
@@ -29,7 +29,7 @@
             color: grey;
             font-size: 20px;
             display: inline-block;
-            text-align: right;
+            text-align: left;
             width: 300px
         }
 
@@ -46,8 +46,8 @@
 
 <body>
  <div class="login">
-    <center><h1 style="color:white">Bike Rentals Demand Prediction</h1></center>
-    <center><h3><font color="grey"><i>with interpretation of values</i></font></h3></center>
+    <center><h1 style="color:blue">Bike Rentals Demand Prediction</h1></center>
+    <center><h3><font color="blue"><i>with interpretation of values</i></font></h3></center>
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
@@ -97,7 +97,7 @@
         </select>
         <br></br>
         
-        <b><label for="hour">Past or Future</label></b>
+        <b><label for="hour">Hour of the day</label></b>
         <select id="hour" name="hr">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -134,15 +134,15 @@
         </select>
         <br></br>
         
-        <b><label for="temperature">Temperature</label></b>
+        <b><label for="temperature">Temperature, C</label></b>
         <input type="text" id="temperature" name="temp", required="required", placeholder="Temperature">
         <br></br>
 
-        <b><label for="humidity">Humidity</label></b>
+        <b><label for="humidity">Humidity, %</label></b>
         <input type="text" id="humidity" name="hum", required="required", placeholder="Humidity">
         <br></br>
         
-        <b><label for="Windspeed">Windspeed</label></b>
+        <b><label for="Windspeed">Windspeed, m/sec</label></b>
         <input type="text" id="Windspeed" name="windspeed", required="required", placeholder="Windspeed">
         <br></br>
 
@@ -164,7 +164,7 @@
 
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
         <h1><b><center><font color="grey" size="7">{{ prediction_text }}</font></center></b></h1>
-        <button onclick="location.href = '/';" id="myButton" class="float-left submit-button" >Home</button>
+        <button onclick="location.href = '/';" id="myButton" class="float-left submit-button" >Interpret values</button>
     </form>
      <br>
    
