@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify, render_template
 #import pickle
 
 
-app=Flask(__name__, template_folder='templates')#, static_url_path='/static')
+app=Flask(__name__)#, static_url_path='/static')
 
 #file1 = 'model_1.pkl'
 #file2 = 'model_2.pkl'
@@ -16,7 +16,7 @@ app=Flask(__name__, template_folder='templates')#, static_url_path='/static')
 #    model_2 = pickle.load(f)
 
 @app.route('/')
-def main():
+def index():
     return render_template('index.html')
 
 #@app.route('/predict', methods=['POST'])
