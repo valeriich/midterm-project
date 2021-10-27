@@ -36,12 +36,12 @@ def predict():
     ### 2 - working day
     ### 1 - weekend
     ### 0 - holiday
-    if X_dict['holiday'] == 1:
-        X_dict['day_type'] = 0
-    elif (X_dict['weekday'] == 6) | (X_dict['weekday'] == 0):
-        X_dict['day_type'] = 1
-    else:
-        X_dict['day_type'] = 2
+    #if X_dict['holiday'] == 1:
+    #    X_dict['day_type'] = 0
+    #elif (X_dict['weekday'] == 6) or (X_dict['weekday'] == 0):
+    #    X_dict['day_type'] = 1
+    #else:
+    #    X_dict['day_type'] = 2
     # don't need 'holiday' feature anymore
     del X_dict['holiday']
     
@@ -58,7 +58,7 @@ def predict():
     
     
     
-    return render_template('main.html', prediction_text="Predicted demand:\ncasual users {}\nregistered users {}".format(X_dict['day_type'], X_dict['temp']))
+    return render_template('main.html', prediction_text="Predicted demand:\ncasual users {}\nregistered users {}".format(X_dict['hum'], X_dict['temp']))
 
 if __name__=="__main__":
     app.run()
