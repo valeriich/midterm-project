@@ -2,6 +2,8 @@ numpy
 pandas
 flask
 lightgbm==2.2.3
+shap==0.39.0
+matplotlib
 gunicorn
 
 
