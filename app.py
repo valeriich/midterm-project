@@ -30,7 +30,7 @@ def predict():
     X_dict['temp'] += 8
     X_dict['temp'] /= (39 + 8)
     X_dict['windspeed'] /= 67
-    X_dict['hum'] /=  100
+    X_dict['hum'] /= 100
     
     # creating 'day_type' feature
     ### 2 - working day
@@ -43,7 +43,7 @@ def predict():
     #else:
     #    X_dict['day_type'] = 2
     # don't need 'holiday' feature anymore
-    del X_dict['holiday']
+    #del X_dict['holiday']
     
     # binning hour into 'RegisteredHourBins' feature
     #bins = np.array([1.5, 5.5, 6.5, 8.5, 16.5, 18.5, 20.5, 22.5])
