@@ -78,7 +78,9 @@ def predict():
     casual = int(np.around(model_1.predict(X_1).clip(0), 0)[0])
     registered = int(np.around(model_2.predict(X_2).clip(0), 0)[0])
     
-    return render_template('main.html', prediction_text="Predicted demand:\ncasual users {}\nregistered users {}".format(casual, registered))
+    total = casual + registered
+    
+    return render_template('main.html', prediction_text="Predicted demand: {} bikes".format(total))
 
 if __name__=="__main__":
     app.run()
