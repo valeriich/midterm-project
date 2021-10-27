@@ -89,16 +89,14 @@ def predict():
     shap_values = explainer(X_1)
 
     # visualize the first prediction's explanation
-    shap.plots.waterfall(shap_values[0], max_display=14, show=False)
-    plt.figure.savefig(plot1, format = "png",dpi = 150, bbox_inches = 'tight')
+    shap.plots.waterfall(shap_values[0], max_display=14, show=False).savefig(plot1, format = "png",dpi = 150, bbox_inches = 'tight')
     
     # explain the model's predictions using SHAP
     explainer = shap.Explainer(model_2, feature_names=features2)
     shap_values = explainer(X_2)
 
     # visualize the first prediction's explanation
-    shap.plots.waterfall(shap_values[0], max_display=14, show=False)
-    plt.figure.savefig(plot2, format = "png",dpi = 150, bbox_inches = 'tight')
+    shap.plots.waterfall(shap_values[0], max_display=14, show=False).savefig(plot2, format = "png",dpi = 150, bbox_inches = 'tight')
     
     
     return render_template('main.html', prediction_text="Predicted demand for bicycles at this hour of the day: {} bikes".format(total), url_plot1=plot1)
