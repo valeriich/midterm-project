@@ -13,9 +13,7 @@ def main():
 @app.route("/predict", methods=['POST'])
 def predict():
 
-    if request.method == 'POST':
-        s = int(request.form['season'])
-        input_values = [float(i) for i in request.form.values()]
+    input_values = [float(i) for i in request.form.values()]
         
     return render_template('main.html', prediction_text="Predicted demand:\ncasual users {}\nregistered users {}".format(input_values[0], input_values[1]))
 
