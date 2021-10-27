@@ -75,7 +75,7 @@ def get_plots(X_1, X_2, model_1, model_2):
 
     # visualize the first prediction's explanation
     shap.plots.waterfall(shap_values[0], max_display=14, show=False)
-    plt.savefig('/static/plot1.png',format = "png",dpi = 150, bbox_inches = 'tight'))
+    plt.savefig('/static/plot1.png',format = "png",dpi = 150, bbox_inches = 'tight')
     
     # explain the model's predictions using SHAP
     explainer = shap.Explainer(model_2, feature_names=features2)
@@ -83,4 +83,4 @@ def get_plots(X_1, X_2, model_1, model_2):
 
     # visualize the first prediction's explanation
     shap.plots.waterfall(shap_values[0], max_display=14, show=False)
-    plt.savefig('/static/plot2.png',format = "png",dpi = 150, bbox_inches = 'tight'))
+    plt.savefig('/static/plot2.png',format = "png",dpi = 150, bbox_inches = 'tight')
