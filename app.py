@@ -27,7 +27,7 @@ def predict():
     X_dict = {keys[i]: values[i] for i in range(len(keys))}
     
     # normalize weather data
-    #X_dict['temp'] += 8
+    X_dict['temp'] += 8
     #X_dict['temp'] /= (39 + 8)
     #X_dict['windspeed'] /= 67
     #X_dict['hum'] /= 100
