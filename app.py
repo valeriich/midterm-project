@@ -1,16 +1,16 @@
 import numpy as np
 import pandas as pd
-import pickle
 from flask import Flask, request, jsonify, render_template
+import pickle
 
 app=Flask(__name__)
 
+with open('model_1.pkl', 'rb') as f:
+    print('LOADED!')
+    #model_1 = pickle.load(f)
 
-with open('./static/model_1.pkl', 'rb') as f:
-    model_1 = pickle.load(f)
-
-with open('./static/model_2.pkl', 'rb') as f:
-    model_2 = pickle.load(f)
+#with open('model_2.pkl', 'rb') as f:
+#    model_2 = pickle.load(f)
 
 
 @app.route('/', methods=['GET'])
