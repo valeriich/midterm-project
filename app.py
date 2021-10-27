@@ -75,8 +75,8 @@ def predict():
     X_1 = np.array([X_dict[feature] for feature in features1]).reshape(1, -1)
     X_2 = np.array([X_dict[feature] for feature in features2]).reshape(1, -1)
     
-    casual = np.around(model_1.predict(X_1).clip(0), 0)[0]
-    registered = np.around(model_2.predict(X_2).clip(0), 0)[0]
+    casual = int(np.around(model_1.predict(X_1).clip(0), 0)[0])
+    registered = int(np.around(model_2.predict(X_2).clip(0), 0)[0])
     
     return render_template('main.html', prediction_text="Predicted demand:\ncasual users {}\nregistered users {}".format(casual, registered))
 

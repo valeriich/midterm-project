@@ -28,11 +28,10 @@
 
         label{
             color: navy;
-            font-size: 18px;
-            font: serif; 
+            font-size: 15px;
             display: inline-block;
             text-align: left;
-            width: 250px
+            width: 300px
         }
 
         label:hover{
@@ -45,10 +44,9 @@
 </head>
 
 <body>
-  <div class="login">
+  <div class="input">
     <center><h1 style="color:navy">Bike Rentals Demand Prediction</h1></center>
-    <center><h3><font color="navy"><i>with interpretation of values</i></font></h3></center>
-
+   
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
 
@@ -163,8 +161,7 @@
         <br></br>
 
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-        <h1><b><center><font color="grey" size="7">{{ prediction_text }}</font></center></b></h1>
-        <button type="interpret" class="btn btn-primary btn-block btn-large">Iterpret</button>
+        <h1><b><left><font color="navy" size="4">{{ prediction_text }}</font></left></b></h1>
     </form>
      <br>
    
