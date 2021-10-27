@@ -6,11 +6,10 @@ import pickle
 app=Flask(__name__)
 
 with open('model_1.pkl', 'rb') as f:
-    print() 
-    #model_1 = pickle.load(f)
+    model_1 = pickle.load(f)
 
-#with open('model_2.pkl', 'rb') as f:
-#    model_2 = pickle.load(f)
+with open('model_2.pkl', 'rb') as f:
+    model_2 = pickle.load(f)
 
 
 @app.route('/', methods=['GET'])
@@ -49,13 +48,16 @@ def predict():
     # binning hour into 'RegisteredHourBins' feature
     bins = np.array([1.5, 5.5, 6.5, 8.5, 16.5, 18.5, 20.5, 22.5])
     labels = np.arange(len(bins)-1)
-    X_dict['RegisteredHourBins'] = pd.cut([X_dict['hr']], bins=bins, labels=labels).fillna(0).astype(int)[0]
+    label = pd.cut([X_dict['hr']], bins=bins, labels=labels).fillna(0).astype(int)[0]
+    remap_labels = {0: 0, 1: 1, 2: 5, 3: 3, 4: 6, 5: 4, 6: 2}
+    X_dict['RegisteredHourBins'] = remap_labels[label]
     
     # binning hour into 'CasualHourBins' feature
     bins = np.array([7.5, 8.5, 10.5, 17.5, 19.5, 21.5])
     labels = np.arange(len(bins)-1)
-    X_dict['CasualHourBins'] = pd.cut([X_dict['hr']], bins=bins, labels=labels).fillna(0).astype(int)[0]
-    
+    label = pd.cut([X_dict['hr']], bins=bins, labels=labels).fillna(0).astype(int)[0]
+    remap_labels = {0: 0, 1: 2, 2: 4, 3: 3, 4: 1}
+    X_dict['CasualHourBins'] = remap_labels[label]
     
     
     
