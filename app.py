@@ -15,8 +15,9 @@ def predict():
 
     if request.method == 'POST':
         s = int(request.form['season'])
-    
-    return render_template('main.html', prediction_text="You Can Sell The Car at {}".format(s))
+        input_values = [float(i) for i in request.form.values()]
+        
+    return render_template('main.html', prediction_text="Predicted demand:\ncasual users {}\nregistered users {}".format(input_values[0], input_values[1]))
 
 if __name__=="__main__":
     app.run()
