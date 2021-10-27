@@ -4,16 +4,11 @@ import pickle
 from flask import Flask, request, jsonify, render_template
 
 
-with open('model_1.pkl', 'rb') as f:
-    model_1 = pickle.load(f)
+#with open('model_1.pkl', 'rb') as f:
+#    model_1 = pickle.load(f)
 
-with open('model_2.pkl', 'rb') as f:
-    model_2 = pickle.load(f)
-
-
-# function to normalize temperature
-def get_norm_temp(temp):
-    return (temp + 8) / (39 + 8)
+#with open('model_2.pkl', 'rb') as f:
+#    model_2 = pickle.load(f)
 
 app=Flask(__name__)
 
@@ -32,7 +27,7 @@ def predict():
     X_dict = {keys[i]: values[i] for i in range(len(keys))}
     
     # normalize weather data
-    X_dict['temp'] = get_norm_temp(X_dict['temp'])
+    X_dict['temp'] = (X_dict['temp'] + 8) / (39 + 8)
     X_dict['windspeed'] = X_dict['windspeed'] / 67
     X_dict['hum'] = X_dict['hum'] / 100
     
