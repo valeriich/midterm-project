@@ -6,8 +6,7 @@ import pickle
 app=Flask(__name__)
 
 with open('model_1.pkl', 'rb') as f:
-    FILE = 'LOADED'
-    #model_1 = pickle.load(f)
+    model_1 = pickle.load(f)
 
 #with open('model_2.pkl', 'rb') as f:
 #    model_2 = pickle.load(f)
@@ -59,7 +58,7 @@ def predict():
     
     
     
-    return render_template('main.html', prediction_text="Predicted demand:\ncasual users {}\nregistered users {}".format(X_dict['day_type'], FILE))
+    return render_template('main.html', prediction_text="Predicted demand:\ncasual users {}\nregistered users {}".format(X_dict['day_type'], X_dict['CasualHourBins']))
 
 if __name__=="__main__":
     app.run()
