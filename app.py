@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import lightgbm
 from flask import Flask, request, jsonify, render_template
+import matplotlib
 import matplotlib.pyplot as plt
 import shap
 import pickle
@@ -90,6 +91,7 @@ def predict():
 
     # visualize the first prediction's explanation
     shap.plots.waterfall(shap_values[0], max_display=14, show=False)
+    plt.title('Explanation for casual users prediction')
     plt.savefig(plot1, format = "png",dpi = 150, bbox_inches = 'tight')
     
     # explain the model's predictions using SHAP
@@ -98,6 +100,7 @@ def predict():
 
     # visualize the first prediction's explanation
     shap.plots.waterfall(shap_values[0], max_display=14, show=False)
+    plt.title('Explanation for registered users prediction')
     plt.savefig(plot2, format = "png",dpi = 150, bbox_inches = 'tight')
     
     
