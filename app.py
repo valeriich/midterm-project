@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import lightgbm
 from flask import Flask, request, jsonify, render_template
 import pickle
 
@@ -60,9 +61,21 @@ def predict():
     remap_labels = {0: 0, 1: 2, 2: 4, 3: 3, 4: 1}
     X_dict['CasualHourBins'] = remap_labels[label]
     
+    features1 = ['temp', 'hum', 'windspeed', 'hr', '3_days_sum_casual',
+            'rolling_mean_12_hours_casual','season', 'yr', 'mnth',  
+            'day_type', 'weathersit', 'CasualHourBins', 'weekday']
+
+    features2 = ['temp', 'hum', 'windspeed', 'hr', '3_days_sum_registered',
+            'rolling_mean_12_hours_registered', 'season', 'yr', 'mnth',  
+            'day_type', 'weathersit', 'RegisteredHourBins', 'weekday']
     
+    X_1 = np.array([X_dict[feature] for feature in features1]).reshape(1, -1)
+    X_1 = np.array([X_dict[feature] for feature in features2]).reshape(1, -1)
     
-    return render_template('main.html', prediction_text="Predicted demand:\ncasual users {}\nregistered users {}".format(X_dict['day_type'], pickle.DEFAULT_PROTOCOL))
+    casual = np.around(model_1.predict(X_1).clip(0), 0)
+    registered = np.around(model_2.predict(X_2).clip(0), 0)
+    
+    return render_template('main.html', prediction_text="Predicted demand:\ncasual users {}\nregistered users {}".format(casual, registered))
 
 if __name__=="__main__":
     app.run()
