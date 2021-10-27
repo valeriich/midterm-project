@@ -3,8 +3,6 @@ import pandas as pd
 import lightgbm
 from flask import Flask, request, jsonify, render_template
 import pickle
-from utils import *
-
 
 
 with open('model_1.pkl', 'rb') as f:
