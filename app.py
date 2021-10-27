@@ -4,10 +4,10 @@ import pickle
 from flask import Flask, request, jsonify, render_template
 
 
-with open('./model_1.pkl', 'rb') as f:
+with open('model_1.pkl', 'rb') as f:
     model_1 = pickle.load(f)
 
-with open('./model_2.pkl', 'rb') as f:
+with open('model_2.pkl', 'rb') as f:
     model_2 = pickle.load(f)
 
 app=Flask(__name__)
