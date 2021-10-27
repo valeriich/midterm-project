@@ -50,19 +50,19 @@ def predict():
     del X_dict['holiday']
     
     # binning hour into 'RegisteredHourBins' feature
-    bins = np.array([1.5, 5.5, 6.5, 8.5, 16.5, 18.5, 20.5, 22.5])
-    labels = np.arange(len(bins)-1)
-    X_dict['RegisteredHourBins'] = pd.cut([X_dict['hr']], bins=bins, labels=labels).fillna(0).astype(int)[0]
+    #bins = np.array([1.5, 5.5, 6.5, 8.5, 16.5, 18.5, 20.5, 22.5])
+    #labels = np.arange(len(bins)-1)
+    #X_dict['RegisteredHourBins'] = pd.cut([X_dict['hr']], bins=bins, labels=labels).fillna(0).astype(int)[0]
     
     # binning hour into 'CasualHourBins' feature
-    bins = np.array([7.5, 8.5, 10.5, 17.5, 19.5, 21.5])
-    labels = np.arange(len(bins)-1)
-    X_dict['CasualHourBins'] = pd.cut([X_dict['hr']], bins=bins, labels=labels).fillna(0).astype(int)[0]
+    #bins = np.array([7.5, 8.5, 10.5, 17.5, 19.5, 21.5])
+    #labels = np.arange(len(bins)-1)
+    #X_dict['CasualHourBins'] = pd.cut([X_dict['hr']], bins=bins, labels=labels).fillna(0).astype(int)[0]
     
     
     
     
-    return render_template('main.html', prediction_text="Predicted demand:\ncasual users {}\nregistered users {}".format(X_dict['CasualHourBins'], X_dict['RegisteredHourBins']))
+    return render_template('main.html', prediction_text="Predicted demand:\ncasual users {}\nregistered users {}".format(X_dict['day_type'], X_dict['holiday']))
 
 if __name__=="__main__":
     app.run()
