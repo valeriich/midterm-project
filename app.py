@@ -27,9 +27,10 @@ def predict():
     X_dict = {keys[i]: values[i] for i in range(len(keys))}
     
     # normalize weather data
-    X_dict['temp'] = (X_dict['temp'] + 8) / (39 + 8)
-    X_dict['windspeed'] = X_dict['windspeed'] / 67
-    X_dict['hum'] = X_dict['hum'] / 100
+    X_dict['temp'] += 8
+    X_dict['temp'] /= (39 + 8)
+    X_dict['windspeed'] /= 67
+    X_dict['hum'] /=  100
     
     # creating 'day_type' feature
     ### 2 - working day
@@ -45,14 +46,14 @@ def predict():
     del X_dict['holiday']
     
     # binning hour into 'RegisteredHourBins' feature
-    bins = np.array([1.5, 5.5, 6.5, 8.5, 16.5, 18.5, 20.5, 22.5])
-    labels = np.arange(len(bins)-1)
-    X_dict['RegisteredHourBins'] = pd.cut([X_dict['hr']], bins=bins, labels=labels).fillna(0).astype(int)[0]
+    #bins = np.array([1.5, 5.5, 6.5, 8.5, 16.5, 18.5, 20.5, 22.5])
+    #labels = np.arange(len(bins)-1)
+    #X_dict['RegisteredHourBins'] = pd.cut([X_dict['hr']], bins=bins, labels=labels).fillna(0).astype(int)[0]
     
     # binning hour into 'CasualHourBins' feature
-    bins = np.array([7.5, 8.5, 10.5, 17.5, 19.5, 21.5])
-    labels = np.arange(len(bins)-1)
-    X_dict['CasualHourBins'] = pd.cut([X_dict['hr']], bins=bins, labels=labels).fillna(0).astype(int)[0]
+    #bins = np.array([7.5, 8.5, 10.5, 17.5, 19.5, 21.5])
+    #labels = np.arange(len(bins)-1)
+    #X_dict['CasualHourBins'] = pd.cut([X_dict['hr']], bins=bins, labels=labels).fillna(0).astype(int)[0]
     
     
     
