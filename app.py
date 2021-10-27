@@ -101,7 +101,7 @@ def predict():
     plt.savefig(url_plot2,format = "png",dpi = 150, bbox_inches = 'tight')
     
     
-    return render_template('main.html', prediction_text="Predicted demand for bicycles at this hour of the day: {} bikes".format(total), url_plot1, url_plot2)
+    return render_template('main.html', prediction_text="Predicted demand for bicycles at this hour of the day: {} bikes".format(total), url_plot1=url_plot1)
 
 if __name__=="__main__":
     app.run(debug=True)
