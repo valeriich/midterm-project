@@ -61,6 +61,9 @@ def predict():
     remap_labels = {0: 0, 1: 2, 2: 4, 3: 3, 4: 1}
     X_dict['CasualHourBins'] = remap_labels[label]
     
+    # predicting future, so year is 1
+    X_dict['yr'] = 1
+    
     features1 = ['temp', 'hum', 'windspeed', 'hr', '3_days_sum_casual',
             'rolling_mean_12_hours_casual','season', 'yr', 'mnth',  
             'day_type', 'weathersit', 'CasualHourBins', 'weekday']
