@@ -21,7 +21,7 @@ def main():
 def predict():
     
     # get data from html page input fields
-    values = [i for i in request.form.values()]
+    values = [int(i) for i in request.form.values()]
     keys = [i for i in request.form.keys()]
     # save data to dictionary
     X_dict = {keys[i]: values[i] for i in range(len(keys))}
