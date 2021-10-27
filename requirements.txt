@@ -1,6 +1,7 @@
 numpy
 pandas
 flask
+lightgbm==2.2.3
 gunicorn
 
 
