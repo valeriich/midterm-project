@@ -1,0 +1,7 @@
+.wrapper {
+    display: inline-flex;
+    flex-flow: row;
+    padding-right: 20px;
+    padding-left:  20px;
+  }
+  
