@@ -11,6 +11,7 @@ Instead of wrapping up the data to a daily frequency, we will try to forecast ho
 Also, secondary goal of the project is to provide explanation of the hourly prediction, so analyst can see the magnitude of the factors influence. Machine learning models interpretability helps to comprehend why certain decisions or predictions have been maid. Interpretability is also important to debug machine learning models and make informed decisions about how to improve them.
 
 <center><h2 align="center">4. Description of the repository</h2></center>
+
 1) `model_development.ipynb`  - notebook that covers:
 
 * Data preparation and data clearning,
@@ -32,7 +33,7 @@ Also, secondary goal of the project is to provide explanation of the hourly pred
 
 8) `templates/main.html` - web-page of the service.
 
-9) `static/`` - supplimentary folder for images and CSS files.
+9) `static/` - supplimentary folder for images and CSS files.
 
 10) `readme.md`.
 
