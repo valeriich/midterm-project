@@ -12,12 +12,11 @@ Also, secondary goal of the project is to provide explanation of the hourly pred
 
 <center><h2 align="center">4. Description of the repository</h2></center>
 1. model_development.ipynb  - notebook with:
+* Data preparation and data clearning,
+* EDA, feature importance analysis,
+* Feature engineering,
+* Model selection process and parameter tuning.
 
-    * Data preparation and data clearning,
-    * EDA, feature importance analysis,
-    * Feature engineering,
-    * Model selection process and parameter tuning.
-    
 2. training.py - python script to train the final model and save it to a pickle file.
 
 3. app.py - python script to run Flask application (loading model, prediction, serving it via a web serice).
