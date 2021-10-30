@@ -11,30 +11,30 @@ Instead of wrapping up the data to a daily frequency, we will try to forecast ho
 Also, secondary goal of the project is to provide explanation of the hourly prediction, so analyst can see the magnitude of the factors influence. Machine learning models interpretability helps to comprehend why certain decisions or predictions have been maid. Interpretability is also important to debug machine learning models and make informed decisions about how to improve them.
 
 <center><h2 align="center">4. Description of the repository</h2></center>
-1. model_development.ipynb  - notebook with:
+1. *model_development.ipynb*  - notebook with:
 
 * Data preparation and data clearning,
 * EDA, feature importance analysis,
 * Feature engineering,
 * Model selection process and parameter tuning.
 
-2. training.py - python script to train the final model and save it to a pickle file.
+2. *training.py* - python script to train the final model and save it to a pickle file.
 
-3. app.py - python script to run Flask application (loading model, prediction, serving it via a web serice).
+3. *app.py* - python script to run Flask application (loading model, prediction, serving it via a web serice).
 
-4. Procfile - specifies the command that is executed by the application on startup. In our case it calls web application to be served by gunicorn.
+4. *Procfile* - specifies the command that is executed by the application on startup. In our case it calls web application to be served by gunicorn.
 
-5. model_1.pkl, model_2.pkl - pickle files of LightGBM models (for casual and registered users respectively).
+5. *model_1.pkl*, *model_2.pkl* - pickle files of LightGBM models (for casual and registered users respectively).
 
-6. hour.csv - dataset.
+6. *hour.csv* - dataset.
 
-7. requirements.txt - environment's package list.
+7. *requirements.txt* - environment's package list.
 
-8. templates/main.html - web-page of the service.
+8. *templates/main.html* - web-page of the service.
 
-9. static/ - supplimentary folder for images and CSS files.
+9. *static/* - supplimentary folder for images and CSS files.
 
-10. readme.md
+10. *readme.md*.
 
 <center><h2 align="center">5. How to run the project</h2></center>
 This project was deployed on Heroku platform.
