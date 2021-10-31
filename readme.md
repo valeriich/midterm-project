@@ -39,7 +39,7 @@ Also, secondary goal of the project is to provide explanation of the hourly pred
 
 <center><h2 align="center">5. How to run the project</h2></center>
 This project was deployed on Heroku platform.
-<center><h5 align="center"><a href="https://bike-rentals-demand-prediction.herokuapp.com//">Click here to visit the web-service page</a></h6></center>
+<center><h5 align="center"><a href="https://bike-rentals-demand-prediction.herokuapp.com/">Click here to visit the web-service page</a></h6></center>
 
 
 
