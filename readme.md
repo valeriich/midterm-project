@@ -8,6 +8,7 @@
 
 <center><h2 align="center">3. How the solution will be used</h2></center>
 Instead of wrapping up the data to a daily frequency, we will try to forecast hourly demand, suggesting it will help to manage bike rentals service more precisely and agile. Based on hourly forecast, analyst can build the daily curve of possible demand and react fast on changes. In this project we focus just on creation of some model to predict hourly demand, leaving generation of daily curve as next step of problem solving, which is just consecutive forecasts on the day horizon using information about weather forecast f.e.
+
 Also, secondary goal of the project is to provide explanation of the hourly prediction, so analyst can see the magnitude of the factors influence. Machine learning models interpretability helps to comprehend why certain decisions or predictions have been maid. Interpretability is also important to debug machine learning models and make informed decisions about how to improve them.
 
 <center><h2 align="center">4. Description of the repository</h2></center>
